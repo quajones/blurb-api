@@ -125,7 +125,6 @@ func (h *Handler) handleLogIn() echo.HandlerFunc {
 		if err != nil {
 			return err
 		}
-
 		return c.JSON(http.StatusOK, t)
 	}
 }

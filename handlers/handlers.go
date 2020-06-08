@@ -41,22 +41,22 @@ func InitRoutes(h *Handler) {
 		api.POST("/blurb", h.handleCreateBlurb())
 		api.GET("/blurb/:id", nil)
 		api.GET("/user/blurbs", h.handleGetBlurbsForUser())
-		api.GET("/u", h.handleGetBlurbsForFollowing())
+		api.GET("/blurb/following", h.handleGetBlurbsForFollowing())
 		api.DELETE("/blurb/:id", nil)
 		api.POST("/blurb/:id/quip", nil)
 		api.DELETE("/blurb/:id/quip/:id", nil)
 		api.POST("blurb/:id/clap", nil)
 		api.POST("blurb/:id/unclap", nil)
 	}
-	blurbGroup := h.E.Group("/blurb")
-	{
-		blurbGroup.Use(m.JWT([]byte(os.Getenv("BLURB_JWT"))), middleware.JWTCheck)
-		blurbGroup.POST("", h.handleCreateBlurb())
-		blurbGroup.GET("/:id", nil)
-		blurbGroup.GET("", h.handleGetBlurbsForUser())
-		blurbGroup.GET("/u", h.handleGetBlurbsForFollowing())
-		blurbGroup.DELETE("/:blurbId", nil)
-		blurbGroup.POST("/clap/:blurbId", nil)
-		blurbGroup.POST("/unclap/:blurbId", nil)
-	}
+	//blurbGroup := h.E.Group("/blurb")
+	//{
+	//	blurbGroup.Use(m.JWT([]byte(os.Getenv("BLURB_JWT"))), middleware.JWTCheck)
+	//	blurbGroup.POST("", h.handleCreateBlurb())
+	//	blurbGroup.GET("/:id", nil)
+	//	blurbGroup.GET("", h.handleGetBlurbsForUser())
+	//	blurbGroup.GET("/u", h.handleGetBlurbsForFollowing())
+	//	blurbGroup.DELETE("/:blurbId", nil)
+	//	blurbGroup.POST("/clap/:blurbId", nil)
+	//	blurbGroup.POST("/unclap/:blurbId", nil)
+	//}
 }
