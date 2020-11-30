@@ -23,8 +23,8 @@ var (
 
 func (h *Handler) handleDeleteBlurb() echo.HandlerFunc {
 	return func(c echo.Context) error {
-		var blurbId string
-
+		//var blurbId string
+		return nil
 	}
 }
 func (h *Handler) handleCreateBlurb() echo.HandlerFunc {
